@@ -11,6 +11,9 @@ import configuration
 RTSP_URL = configuration.CAM_URL
 STDEV_TRESH = configuration.STDEV_TRESH
 
+if not os.path.exists(configuration.RECORDINGS_PATH):
+    os.makedirs(configuration.RECORDINGS_PATH)
+
 cap = cv2.VideoCapture(RTSP_URL)
 old_frame = None
 current_time_counter = 0
@@ -71,7 +74,7 @@ while True:
       if recordingStarted == True:
         print('Saving the video')
         out.release()
-        os.rename('./recording.mp4', './recordings/%s.mp4' % time.strftime('%d_%m_%Y %H:%M:%S')) # move to recordings folder
+        os.rename('./recording.mp4', '%s/%s.mp4' % (configuration.RECORDINGS_PATH, time.strftime('%d_%m_%Y %H:%M:%S'))) # move to recordings folder
         recordingStarted = False
 
     old_frame = frame
