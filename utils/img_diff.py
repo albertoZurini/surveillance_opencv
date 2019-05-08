@@ -15,8 +15,4 @@ def occupied(frame1, frame2):
   mod = cv2.GaussianBlur(dist, (9,9), 0)
   _, thresh = cv2.threshold(mod, 100, 255, 0)
   _, stDev = cv2.meanStdDev(mod)
-  #cv2.imshow('dist', mod)
-  cv2.imwrite('dist.jpg', mod)
-  cv2.imwrite('a.jpg', frame1)
-  cv2.imwrite('b.jpg', frame2)
   return stDev
