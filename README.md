@@ -1,5 +1,13 @@
 # OpenCV Surveillance
 
+# Docker build
+Run `cd docker && sudo bash build.sh`. It will automatically build the GPU version. If you don't have a GPU, check `c40838de39ce94a37f00f23de6040be7fb377e34` commit.
+
+# Edit configuration.py file!
+
+# Enable VIMEO Upload
+Uncomment rows 123-127 of main.py.
+
 ## Features
 - HTTP request, with last recorded frame, to a server (eg. so it can be sent via Telegram bot or mail)
 - Standard Deviation motion detection
